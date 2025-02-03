@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
+import { AppConfig } from "./lib/config";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  redirects: AppConfig.maintenance.enabled ?  async () => {
+    return [
+      {source: '/((?!maintenance).*)', destination: '/maintenance', permanent: false}
+    ]
+  } : undefined
 };
 
-export default nextConfig;
+export default nextConfig

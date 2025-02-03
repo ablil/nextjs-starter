@@ -29,3 +29,10 @@ You can configure all **private routes** on [middleware.ts](middleware.ts).
 The following two routes have a dummy form that needs your adjustments:
 * /auth/login
 * /auth/register
+
+## Maintenance mode
+
+Maintenance mode can be enabled by setting env variable `MAINTENANCE_ENABLED=true`, this will make sure all endpoints
+ are redirected automatically to `/maintenance` endpoint (configured on `next.config.js`).
+
+**Changing env variable requires deployment**
